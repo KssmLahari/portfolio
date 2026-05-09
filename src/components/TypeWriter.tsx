@@ -39,9 +39,9 @@ const TypeWriter = ({ texts }: { texts: string[] }) => {
   }, [currentText, currentTextIndex, isDeleting, texts]);
 
   return (
-    <span className="text-purple-600">
+    <span className="inline-block bg-gradient-to-r from-cyan-600 to-amber-500 bg-clip-text text-transparent dark:from-cyan-400 dark:to-amber-400">
       {currentText}
-      <span className="animate-pulse">|</span>
+      <span className="animate-pulse text-cyan-600 dark:text-cyan-400">|</span>
     </span>
   );
 };

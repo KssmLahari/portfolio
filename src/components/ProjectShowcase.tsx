@@ -7,6 +7,107 @@ import { AnimatePresence } from 'framer-motion';
 import { MotionDiv } from './MotionDiv';
 import { ExternalLink, Github, ChevronLeft, ChevronRight, X, TrendingUp, BarChart3 } from 'lucide-react';
 import { Project, ProjectScreenshot } from '@/data/projects';
+import {
+  getCardCoverScreenshot,
+  getCardFilmstripScreenshots,
+  isPlaceholderScreenshotUrl,
+} from '@/lib/project-media';
+
+function ProjectCardMedia({
+  project,
+  cover,
+  filmstrip,
+  showFilmstrip,
+  encodeImageUrl,
+  getScreenshotTypeIcon,
+  categoryGradient,
+}: {
+  project: Project;
+  cover: ProjectScreenshot | null;
+  filmstrip: ProjectScreenshot[];
+  showFilmstrip: boolean;
+  encodeImageUrl: (url: string) => string;
+  getScreenshotTypeIcon: (type: ProjectScreenshot['type']) => string;
+  categoryGradient: string;
+}) {
+  const [heroFailed, setHeroFailed] = useState(false);
+
+  return (
+    <div className="relative h-56 overflow-hidden bg-gray-100 dark:bg-gray-800/80 transition-opacity duration-300 group-hover:opacity-[0.97]">
+      {cover && !heroFailed ? (
+        <Image
+          src={encodeImageUrl(cover.url)}
+          alt={cover.alt || project.title}
+          fill
+          sizes="(min-width: 1024px) 320px, (min-width: 768px) 50vw, 100vw"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          unoptimized
+          onError={() => setHeroFailed(true)}
+        />
+      ) : (
+        <div
+          className={`absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br px-4 text-center ${categoryGradient}`}
+          aria-hidden
+        >
+          <span className="text-3xl drop-shadow-md opacity-90">
+            {getScreenshotTypeIcon(cover?.type ?? 'product')}
+          </span>
+          <span className="mt-2 line-clamp-2 text-xs font-medium text-white/90">
+            {project.title}
+          </span>
+        </div>
+      )}
+
+      {showFilmstrip && (
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] bg-gradient-to-t from-black/55 via-black/20 to-transparent px-2 pb-2 pt-10"
+          aria-hidden
+        >
+          <div className="flex gap-1.5 overflow-x-auto pb-0.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            {filmstrip.map((shot, idx) => (
+              <div
+                key={`${shot.url}-${idx}`}
+                className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md border border-white/40 bg-black/30 shadow-sm ring-1 ring-black/10"
+                title={shot.caption || shot.alt}
+              >
+                {!isPlaceholderScreenshotUrl(shot.url) ? (
+                  <Image
+                    src={encodeImageUrl(shot.url)}
+                    alt=""
+                    fill
+                    sizes="48px"
+                    className="object-cover"
+                    unoptimized
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-white/10 text-[10px]">
+                    {getScreenshotTypeIcon(shot.type)}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="absolute top-4 right-4 z-[2]">
+        <span
+          className={`rounded px-2.5 py-1 text-xs font-medium ${
+            project.status === 'Live'
+              ? 'bg-green-500/90 text-white'
+              : project.status === 'Production'
+                ? 'bg-blue-500/90 text-white'
+                : project.status === 'Completed'
+                  ? 'bg-gray-600/90 text-white'
+                  : 'bg-yellow-500/90 text-white'
+          }`}
+        >
+          {project.status}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 interface ProjectShowcaseProps {
   projects: Project[];
@@ -71,17 +172,24 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
   // Helper function to encode image URLs with spaces
   const encodeImageUrl = (url: string): string => {
     try {
-      // Split the URL into parts
+      if (url.startsWith('http://') || url.startsWith('https://')) return url;
       const parts = url.split('/');
-      // Encode only the filename (last part)
       const filename = parts[parts.length - 1];
       const encodedFilename = encodeURIComponent(filename);
-      // Reconstruct the URL
       parts[parts.length - 1] = encodedFilename;
       return parts.join('/');
     } catch {
       return url;
     }
+  };
+
+  const categoryCardGradient: Record<Project['category'], string> = {
+    'Full-Stack': 'from-cyan-600/90 via-teal-700/85 to-indigo-800/90',
+    'AI/ML': 'from-violet-600/90 via-fuchsia-700/85 to-indigo-900/90',
+    'Data Engineering': 'from-emerald-600/90 to-teal-800/90',
+    DevOps: 'from-slate-600/90 to-blue-900/90',
+    Mobile: 'from-orange-500/90 to-rose-700/90',
+    Other: 'from-slate-600/90 to-slate-800/90',
   };
 
   return (
@@ -114,7 +222,12 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project, index) => {
+            const cover = getCardCoverScreenshot(project);
+            const filmstrip = getCardFilmstripScreenshots(project, 5);
+            const showFilmstrip = filmstrip.length > 1;
+
+            return (
           <MotionDiv
             key={project.id}
             initial={{ opacity: 0, y: 20 }}
@@ -123,49 +236,23 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
             whileHover={{ y: -6 }}
             className="group cursor-pointer will-change-transform"
           >
-            <div 
+            <div
               data-project-card
-              className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden 
-                        border border-gray-200 dark:border-gray-800
-                        transition-all duration-200 h-full flex flex-col
-                        hover:border-gray-400 dark:hover:border-gray-600
-                        hover:shadow-xl dark:hover:shadow-2xl
-                        cursor-pointer will-change-transform"
+              className="flex h-full cursor-pointer flex-col overflow-hidden rounded-lg border border-gray-200 bg-white transition-all duration-200 will-change-transform hover:border-gray-400 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-600 dark:hover:shadow-2xl"
               onClick={() => openProjectModal(project)}
             >
-              {/* Project Image */}
-              <div className="relative h-56 overflow-hidden bg-gray-50 dark:bg-gray-800 group-hover:opacity-90 transition-opacity duration-300">
-                {project.screenshots.length > 0 ? (
-                  <Image
-                    src={encodeImageUrl(project.screenshots[0].url)}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    unoptimized
-                    onError={(e) => {
-                      // Fallback to placeholder if image doesn't exist
-                      e.currentTarget.src = `https://via.placeholder.com/400x300/6366f1/ffffff?text=${encodeURIComponent(project.title)}`;
-                    }}
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-                    <span className="text-4xl opacity-50">📦</span>
-                  </div>
-                )}
-                <div className="absolute top-4 right-4">
-                  <span className={`px-2.5 py-1 rounded text-xs font-medium ${
-                    project.status === 'Live' ? 'bg-green-500/90 text-white' :
-                    project.status === 'Production' ? 'bg-blue-500/90 text-white' :
-                    project.status === 'Completed' ? 'bg-gray-600/90 text-white' :
-                    'bg-yellow-500/90 text-white'
-                  }`}>
-                    {project.status}
-                  </span>
-                </div>
-              </div>
+              <ProjectCardMedia
+                project={project}
+                cover={cover}
+                filmstrip={filmstrip}
+                showFilmstrip={showFilmstrip}
+                encodeImageUrl={encodeImageUrl}
+                getScreenshotTypeIcon={getScreenshotTypeIcon}
+                categoryGradient={categoryCardGradient[project.category] ?? categoryCardGradient.Other}
+              />
 
               {/* Project Content */}
-              <div className="p-6 flex-1 flex flex-col">
+              <div className="flex flex-1 flex-col p-6">
                 <div className="mb-4">
                   <span className="text-xs text-gray-500 dark:text-gray-400 mb-3 inline-block">
                     {project.category} • {project.year}
@@ -276,7 +363,8 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
               </div>
             </div>
           </MotionDiv>
-        ))}
+            );
+          })}
         </div>
       )}
 

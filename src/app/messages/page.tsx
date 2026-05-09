@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Mail, User, Calendar, MessageSquare, ArrowLeft, Trash2, Eye } from 'lucide-react';
 import { MotionDiv } from '@/components/MotionDiv';
 import Link from 'next/link';
+import SiteChrome from '@/components/SiteChrome';
 
 interface ContactMessage {
   id: string;
@@ -84,18 +85,21 @@ const MessagesPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-8 h-8 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading messages...</p>
+      <SiteChrome>
+        <div className="flex min-h-[50vh] items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 dark:from-slate-950 dark:to-slate-900">
+          <div className="text-center">
+            <div className="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-4 border-purple-600 border-t-transparent dark:border-cyan-500 dark:border-t-transparent"></div>
+            <p className="text-slate-600 dark:text-slate-300">Loading messages...</p>
+          </div>
         </div>
-      </div>
+      </SiteChrome>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
-      <div className="container mx-auto px-4 py-8">
+    <SiteChrome>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 text-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-slate-100">
+      <div className="container mx-auto px-4 py-8 max-w-6xl">
         {/* Header */}
         <MotionDiv
           initial={{ opacity: 0, y: -20 }}
@@ -106,18 +110,18 @@ const MessagesPage = () => {
             <div className="flex items-center gap-4">
               <Link 
                 href="/"
-                className="p-2 rounded-lg bg-white/50 hover:bg-white/70 transition-colors"
+                className="rounded-lg border border-slate-200/80 bg-white/90 p-2 transition-colors hover:bg-white dark:border-slate-600 dark:bg-slate-800 dark:hover:bg-slate-700"
               >
-                <ArrowLeft className="w-5 h-5 text-gray-600" />
+                <ArrowLeft className="h-5 w-5 text-slate-700 dark:text-slate-200" />
               </Link>
               <div>
-                <h1 className="text-3xl font-bold text-gray-800">Messages</h1>
-                <p className="text-gray-600">Contact form submissions</p>
+                <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Messages</h1>
+                <p className="text-slate-600 dark:text-slate-400">Contact form submissions</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-5 h-5 text-purple-600" />
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-slate-600 dark:text-slate-400">
                 {unreadCount} unread
               </span>
             </div>
@@ -131,14 +135,14 @@ const MessagesPage = () => {
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-1"
           >
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-purple-100 shadow-lg overflow-hidden">
-              <div className="p-4 border-b border-gray-200">
-                <h2 className="font-semibold text-gray-800">Inbox</h2>
+            <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-white/90 shadow-lg backdrop-blur-sm dark:border-slate-700 dark:bg-slate-800/95">
+              <div className="border-b border-slate-200 p-4 dark:border-slate-700">
+                <h2 className="font-semibold text-slate-900 dark:text-white">Inbox</h2>
               </div>
               <div className="max-h-96 overflow-y-auto">
                 {messages.length === 0 ? (
-                  <div className="p-6 text-center text-gray-500">
-                    <Mail className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+                  <div className="p-6 text-center text-slate-500 dark:text-slate-400">
+                    <Mail className="mx-auto mb-3 h-12 w-12 text-slate-300 dark:text-slate-600" />
                     <p>No messages yet</p>
                   </div>
                 ) : (
@@ -149,24 +153,24 @@ const MessagesPage = () => {
                         setSelectedMessage(message);
                         markAsRead(message.id);
                       }}
-                      className={`p-4 border-b border-gray-100 cursor-pointer transition-colors hover:bg-purple-50 ${
-                        selectedMessage?.id === message.id ? 'bg-purple-100' : ''
-                      } ${!message.read ? 'bg-blue-50' : ''}`}
+                      className={`cursor-pointer border-b border-slate-100 p-4 transition-colors hover:bg-purple-50 dark:border-slate-700 dark:hover:bg-slate-700/50 ${
+                        selectedMessage?.id === message.id ? 'bg-purple-100 dark:bg-slate-700/80' : ''
+                      } ${!message.read ? 'bg-blue-50 dark:bg-slate-800/80' : ''}`}
                     >
                       <div className="flex items-start justify-between">
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            <h3 className="font-medium text-gray-800 truncate">
+                            <h3 className="truncate font-medium text-slate-900 dark:text-slate-100">
                               {message.name}
                             </h3>
                             {!message.read && (
                               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                             )}
                           </div>
-                          <p className="text-sm font-medium text-gray-700 truncate">
+                          <p className="truncate text-sm font-medium text-slate-700 dark:text-slate-300">
                             {message.subject}
                           </p>
-                          <p className="text-xs text-gray-500 mt-1">
+                          <p className="mt-1 text-xs text-slate-500 dark:text-slate-500">
                             {formatDate(message.timestamp)}
                           </p>
                         </div>
@@ -175,7 +179,7 @@ const MessagesPage = () => {
                             e.stopPropagation();
                             deleteMessage(message.id);
                           }}
-                          className="p-1 text-gray-400 hover:text-red-500 transition-colors"
+                          className="p-1 text-slate-400 transition-colors hover:text-red-500 dark:text-slate-500"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>
@@ -194,13 +198,13 @@ const MessagesPage = () => {
             className="lg:col-span-2"
           >
             {selectedMessage ? (
-              <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-purple-100 shadow-lg p-6">
-                <div className="flex items-start justify-between mb-6">
+              <div className="rounded-xl border border-slate-200/90 bg-white/90 p-6 shadow-lg backdrop-blur-sm dark:border-slate-700 dark:bg-slate-800/95">
+                <div className="mb-6 flex items-start justify-between">
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                    <h2 className="mb-2 text-2xl font-bold text-slate-900 dark:text-white">
                       {selectedMessage.subject}
                     </h2>
-                    <div className="flex items-center gap-4 text-sm text-gray-600">
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
                       <div className="flex items-center gap-1">
                         <User className="w-4 h-4" />
                         {selectedMessage.name}
@@ -225,12 +229,12 @@ const MessagesPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <MessageSquare className="w-5 h-5 text-gray-600" />
-                    <span className="font-medium text-gray-700">Message</span>
+                <div className="mb-6 rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-slate-600 dark:bg-slate-900/60">
+                  <div className="mb-3 flex items-center gap-2">
+                    <MessageSquare className="h-5 w-5 text-slate-600 dark:text-slate-400" />
+                    <span className="font-medium text-slate-800 dark:text-slate-200">Message</span>
                   </div>
-                  <p className="text-gray-800 whitespace-pre-wrap">
+                  <p className="whitespace-pre-wrap text-slate-800 dark:text-slate-200">
                     {selectedMessage.message}
                   </p>
                 </div>
@@ -253,12 +257,12 @@ const MessagesPage = () => {
                 </div>
               </div>
             ) : (
-              <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-purple-100 shadow-lg p-12 text-center">
-                <Eye className="w-16 h-16 mx-auto mb-4 text-gray-300" />
-                <h3 className="text-xl font-medium text-gray-600 mb-2">
+              <div className="rounded-xl border border-slate-200/90 bg-white/90 p-12 text-center shadow-lg backdrop-blur-sm dark:border-slate-700 dark:bg-slate-800/95">
+                <Eye className="mx-auto mb-4 h-16 w-16 text-slate-300 dark:text-slate-600" />
+                <h3 className="mb-2 text-xl font-medium text-slate-700 dark:text-slate-300">
                   Select a message
                 </h3>
-                <p className="text-gray-500">
+                <p className="text-slate-500 dark:text-slate-400">
                   Choose a message from the inbox to view its details
                 </p>
               </div>
@@ -267,6 +271,7 @@ const MessagesPage = () => {
         </div>
       </div>
     </div>
+    </SiteChrome>
   );
 };
 

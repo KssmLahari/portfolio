@@ -31,7 +31,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100" suppressHydrationWarning>
+      <body className="font-sans bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100" suppressHydrationWarning>
+        <div className="site-grain pointer-events-none fixed inset-0 z-[1]" aria-hidden />
         {children}
       </body>
     </html>

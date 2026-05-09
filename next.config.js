@@ -22,6 +22,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'github-readme-streak-stats.demolab.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+      },
     ],
     unoptimized: false,
   },

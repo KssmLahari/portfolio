@@ -1,13 +1,13 @@
 'use client';
-import Navigation from '@/components/Navigation';
+import SiteChrome from '@/components/SiteChrome';
 import { blogPosts } from './blogData';
 import Link from 'next/link';
 
 const Blog = () => {
   return (
+    <SiteChrome>
     <main className="bg-gradient-to-br from-gray-900 via-black to-gray-900 min-h-screen text-white">
-      <Navigation />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-16">
         <h1 className="text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
           Latest Articles
         </h1>
@@ -42,6 +42,7 @@ const Blog = () => {
         </div>
       </div>
     </main>
+    </SiteChrome>
   );
 };
 

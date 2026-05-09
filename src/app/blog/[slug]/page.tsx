@@ -1,5 +1,5 @@
 'use client';
-import Navigation from '@/components/Navigation';
+import SiteChrome from '@/components/SiteChrome';
 import { useParams } from 'next/navigation';
 import { blogPosts } from '../blogData';
 import Link from 'next/link';
@@ -9,13 +9,17 @@ const BlogPost = () => {
   const post = blogPosts.find(post => post.slug === params.slug);
 
   if (!post) {
-    return <div>Post not found</div>;
+    return (
+      <SiteChrome>
+        <div className="min-h-screen bg-gray-900 px-4 py-16 text-white">Post not found</div>
+      </SiteChrome>
+    );
   }
 
   return (
+    <SiteChrome>
     <main className="bg-gradient-to-br from-gray-900 via-black to-gray-900 min-h-screen text-white">
-      <Navigation />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-16">
         <Link 
           href="/blog"
           className="inline-flex items-center text-purple-400 hover:text-purple-300 mb-8"
@@ -42,6 +46,7 @@ const BlogPost = () => {
         </article>
       </div>
     </main>
+    </SiteChrome>
   );
 };
 

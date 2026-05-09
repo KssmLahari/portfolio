@@ -2,7 +2,7 @@
 
 import { Calendar, MapPin, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-
+import SiteChrome from '@/components/SiteChrome';
 
 export default function ExperiencePage() {
   const experiences = [
@@ -35,23 +35,23 @@ export default function ExperiencePage() {
 ];
 
      return (
-     <div className="bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30 min-h-screen transition-all duration-500">
+     <SiteChrome>
+     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30 text-slate-900 transition-all duration-500 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-slate-100">
        <div className="max-w-6xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
          <div className="mb-8">
            <Link
              href="/"
-             className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 
-                       transition-colors duration-300 hover:translate-x-[-4px]"
+             className="inline-flex items-center gap-2 text-purple-600 transition-colors duration-300 hover:translate-x-[-4px] hover:text-purple-700 dark:text-cyan-400 dark:hover:text-cyan-300"
            >
              <ArrowLeft className="w-5 h-5" />
              <span>Back to Home</span>
            </Link>
          </div>
         <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-3xl font-bold text-transparent dark:from-cyan-400 dark:to-violet-400">
             Professional Experience
           </h1>
-                     <p className="mt-4 text-lg text-gray-600 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                     <p className="animate-fade-in mt-4 text-lg text-slate-600 dark:text-slate-300" style={{ animationDelay: '0.2s' }}>
              Healthcare payer platforms and production SaaS — measurable reliability and performance wins
            </p>
         </div>
@@ -60,26 +60,26 @@ export default function ExperiencePage() {
           {experiences.map((exp, index) => (
             <div 
               key={index}
-              className="relative border-l-2 border-gradient pl-8 pb-8 animate-slide-in"
+              className="animate-slide-in relative border-l-2 border-indigo-200 pb-8 pl-8 dark:border-slate-600"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-pulse" />
               
-              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:bg-white">
+              <div className="transform rounded-lg border border-slate-200/80 bg-white/80 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl dark:border-slate-700 dark:bg-slate-800/90 dark:hover:bg-slate-800">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
                   <div>
-                    <h2 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    <h2 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-xl font-semibold text-transparent dark:from-cyan-400 dark:to-violet-400">
                       {exp.title}
                     </h2>
-                    <h3 className="text-lg text-gray-700">{exp.company}</h3>
+                    <h3 className="text-lg text-slate-800 dark:text-slate-200">{exp.company}</h3>
                   </div>
                   <div className="mt-2 sm:mt-0">
-                    <div className="flex items-center text-gray-600 mb-1 hover:text-blue-600 transition-colors">
-                      <Calendar className="w-4 h-4 mr-2" />
+                    <div className="mb-1 flex items-center text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-400 dark:hover:text-cyan-400">
+                      <Calendar className="mr-2 h-4 w-4" />
                       <span>{exp.period}</span>
                     </div>
-                    <div className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
-                      <MapPin className="w-4 h-4 mr-2" />
+                    <div className="flex items-center text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-400 dark:hover:text-cyan-400">
+                      <MapPin className="mr-2 h-4 w-4" />
                       <span>{exp.location}</span>
                     </div>
                   </div>
@@ -92,7 +92,7 @@ export default function ExperiencePage() {
                       className="flex items-start transform hover:translate-x-2 transition-all duration-300"
                     >
                       <span className="inline-block w-1.5 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 mr-3"></span>
-                      <span className="text-gray-600 hover:text-gray-900 transition-colors">{achievement}</span>
+                      <span className="text-slate-700 transition-colors hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">{achievement}</span>
                     </li>
                   ))}
                 </ul>
@@ -102,15 +102,15 @@ export default function ExperiencePage() {
         </div>
 
         <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
-          <div className="inline-block bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                         <h2 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+          <div className="inline-block transform rounded-lg border border-slate-200/80 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:from-slate-900 dark:to-slate-800">
+                         <h2 className="mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-xl font-semibold text-transparent dark:from-cyan-400 dark:to-violet-400">
                Want to work together?
              </h2>
-             <p className="text-gray-600 mb-4">
+             <p className="mb-4 text-slate-600 dark:text-slate-300">
                I&apos;m always open to interesting roles in Software Engineering, Backend, or AI/ML. Let&apos;s talk.
              </p>
                          <Link
-               href="/#contact"
+               href="/contact"
                className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
              >
                Get in Touch
@@ -119,5 +119,6 @@ export default function ExperiencePage() {
         </div>
       </div>
     </div>
+    </SiteChrome>
   );
 }
