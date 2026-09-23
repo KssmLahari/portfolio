@@ -1,5 +1,6 @@
-# Portfolio – Lahari Karrotu
-Personal portfolio built with Next.js, TypeScript, Tailwind, and Framer Motion. It highlights AI agents, full-stack builds, data systems, and live project demos.
+# Lahari Karrotu — Data Analyst & Data Engineer
+
+Personal portfolio (Next.js, TypeScript, Tailwind). Focus: SQL, healthcare data pipelines, quality, and reporting.
 
 ## Quick Start
 ```bash
