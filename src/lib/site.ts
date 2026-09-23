@@ -1,5 +1,5 @@
 /** Public handles — change GitHub username here only. */
-export const GITHUB_USERNAME = 'KssmLahari';
+export const GITHUB_USERNAME = 'laharikarrotu';
 export const GITHUB_URL = `https://github.com/${GITHUB_USERNAME}`;
 
 /**

@@ -13,16 +13,22 @@ export default function AboutPage() {
               <h1 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-3xl font-bold text-transparent dark:from-cyan-400 dark:to-violet-400">
                 About Me
               </h1>
-              <p className="animate-fade-in text-lg leading-relaxed text-slate-700 dark:text-slate-300" style={{ animationDelay: '0.2s' }}>
-                Hey, I&apos;m Lahari. I work at Cigna on the backend for member-facing healthcare APIs — FHIR-shaped
-                services, AWS serverless pieces, and the habits (incidents, reviews, policy) that keep regulated data
-                inside the lines. I am most engaged where the spec is fuzzy and the data is not: serialization quirks,
-                concurrency, infrastructure that only misbehaves under load.
+              <p
+                className="animate-fade-in text-lg leading-relaxed text-slate-700 dark:text-slate-300"
+                style={{ animationDelay: '0.2s' }}
+              >
+                Hey, I&apos;m Lahari — a Master Data Analyst based in Palo Alto with 4+ years of experience in
+                healthcare environments. I maintain supply chain master data including items, vendors, pricing,
+                and inventory in Workday ERP and Infor Lawson Supply Chain Management.
               </p>
-              <p className="animate-fade-in text-lg leading-relaxed text-slate-700 dark:text-slate-300" style={{ animationDelay: '0.3s' }}>
-                On my own time I still build: vision and multimodal pipelines (HealthScan, Blinds &amp; Boundaries) where
-                the model is only as good as the API and error handling around it. That is the same standard I want at
-                work — integration, not hype.
+              <p
+                className="animate-fade-in text-lg leading-relaxed text-slate-700 dark:text-slate-300"
+                style={{ animationDelay: '0.3s' }}
+              >
+                At The Cigna Group I served as the primary point of contact for master data across IT, operations,
+                and business teams — from data cleansing and quality monitoring to executive KPI reporting. I also
+                have co-op experience at Anguliyam AI, graduate research at Florida Tech, and an engineering
+                foundation from Zoho that sharpened how I think about data quality at scale.
               </p>
 
               <div className="transform space-y-4 transition-all duration-500 hover:translate-x-2">
@@ -32,16 +38,18 @@ export default function AboutPage() {
                 <div className="stagger-animation space-y-3">
                   <div className="rounded-lg border border-slate-200/80 bg-white/60 p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/90">
                     <h3 className="font-medium text-slate-900 dark:text-white">
-                      M.S. Computer Science — Systems, Data Engineering &amp; Applied AI
+                      Master of Science, Computer Science
                     </h3>
                     <p className="mt-1 text-slate-600 dark:text-slate-400">
                       Florida Institute of Technology · Aug 2022 – May 2024 · GPA 3.6 / 4.0
                     </p>
                   </div>
                   <div className="rounded-lg border border-slate-200/80 bg-white/60 p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/90">
-                    <h3 className="font-medium text-slate-900 dark:text-white">B.Tech Computer Science</h3>
+                    <h3 className="font-medium text-slate-900 dark:text-white">
+                      Bachelor of Technology, Computer Science
+                    </h3>
                     <p className="mt-1 text-slate-600 dark:text-slate-400">
-                      KL University · Aug 2018 – May 2022 · 8.7 / 10
+                      KL University · Aug 2018 – May 2022 · GPA 8.7 / 10
                     </p>
                   </div>
                 </div>
@@ -53,12 +61,21 @@ export default function AboutPage() {
                 </h2>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { title: 'Backend & APIs', skills: 'Java, Spring Boot, FastAPI, Golang, HAPI FHIR, REST' },
-                    { title: 'Healthcare & compliance', skills: 'FHIR / HL7, OAuth 2.0, OIDC, HIPAA-aware design' },
-                    { title: 'Languages', skills: 'Java, Python, Golang, TypeScript, SQL, JavaScript' },
                     {
-                      title: 'Cloud & infra',
-                      skills: 'AWS (Lambda, DynamoDB, S3, RDS, SQS), Terraform, CloudFormation, Docker, Azure',
+                      title: 'MDM & ERP',
+                      skills: 'Workday ERP, Infor Lawson SCM, item/vendor/pricing/inventory data, data governance',
+                    },
+                    {
+                      title: 'Supply Chain',
+                      skills: 'Vendor management, purchase orders, contracts, sourcing, procurement, recalls',
+                    },
+                    {
+                      title: 'Data & Analytics',
+                      skills: 'SQL (advanced), Python, data cleansing, multi-source integration, KPI tracking',
+                    },
+                    {
+                      title: 'Reporting & Tools',
+                      skills: 'Splunk, CloudWatch, operational dashboards, Jira, ServiceNow, Git, Excel',
                     },
                   ].map((competency, index) => (
                     <div
@@ -105,10 +122,11 @@ export default function AboutPage() {
                 </h2>
                 <ul className="stagger-animation space-y-3">
                   {[
-                    'Cigna: FHIR R4 APIs at member scale, Golang PHI masking in API Gateway, AWS serverless (Terraform/CloudFormation), Splunk-led incident triage — login 5xx from 3.2% to under 0.5%',
-                    'Zoho: JDBC DAL across 14 entities, auth + 2FA, MySQL optimization (~4.8s → <200ms page loads)',
-                    'Projects: HealthScan (multimodal healthcare assistant), Blinds & Boundaries (Azure CV + try-on), SmartBuy v2, AI Resume Tailor',
-                    'M.S. CS (Florida Tech) · AWS Solutions Architect · ServiceNow CSA · Cisco CCNA',
+                    'Cigna: Workday ERP + Infor Lawson MDM, data quality monitoring, executive KPI reporting, and primary POC for master data across IT and business teams',
+                    'Anguliyam: enterprise data governance, operational dashboards, and process improvements reducing data errors',
+                    'Florida Tech: research dataset cleansing and operational reporting pipelines using MDM principles',
+                    'Zoho: maintained master data across 14 entities, optimized data access from 4.8s to under 200ms',
+                    'Certifications: AWS Solutions Architect · ServiceNow CSA · Cisco CCNA',
                   ].map((highlight, index) => (
                     <li key={index} className="flex transform items-start transition-all duration-300 hover:translate-x-2">
                       <span className="mr-3 mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 dark:from-cyan-500 dark:to-violet-500" />

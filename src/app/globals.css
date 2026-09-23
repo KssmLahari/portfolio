@@ -585,6 +585,207 @@ body {
   );
 }
 
+/* Landing hero banner + pills */
+.hero-banner {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(236, 254, 255, 0.6) 100%
+  );
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.dark .hero-banner {
+  border-color: rgba(34, 211, 238, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.75) 0%,
+    rgba(22, 78, 99, 0.35) 100%
+  );
+}
+
+.hero-banner-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+  animation: hero-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes hero-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(0.92);
+  }
+}
+
+.hero-banner-sep {
+  color: rgba(100, 116, 139, 0.55);
+  user-select: none;
+}
+
+.hero-headline-accent {
+  background: linear-gradient(120deg, #0891b2 0%, #0d9488 45%, #059669 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark .hero-headline-accent {
+  background: linear-gradient(120deg, #22d3ee 0%, #2dd4bf 50%, #34d399 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #0f766e;
+  border: 1px solid rgba(6, 182, 212, 0.22);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-pill:hover {
+  border-color: rgba(6, 182, 212, 0.45);
+  transform: translateY(-1px);
+}
+
+.dark .hero-pill {
+  color: #99f6e4;
+  border-color: rgba(34, 211, 238, 0.18);
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.hero-stat-bar {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(248, 250, 252, 0.45) 100%
+  );
+  backdrop-filter: blur(10px);
+}
+
+@media (min-width: 640px) {
+  .hero-stat-bar {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.dark .hero-stat-bar {
+  border-color: rgba(51, 65, 85, 0.65);
+  background: linear-gradient(
+    160deg,
+    rgba(15, 23, 42, 0.72) 0%,
+    rgba(30, 41, 59, 0.45) 100%
+  );
+}
+
+.hero-stat-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #0f172a;
+}
+
+.dark .hero-stat-value {
+  color: #f8fafc;
+}
+
+.hero-stat-label {
+  margin-top: 0.125rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.dark .hero-stat-label {
+  color: #94a3b8;
+}
+
+.hero-profile-card {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(236, 254, 255, 0.35) 100%
+  );
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 4px 24px rgba(15, 23, 42, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+}
+
+.dark .hero-profile-card {
+  border-color: rgba(51, 65, 85, 0.7);
+  background: linear-gradient(
+    165deg,
+    rgba(15, 23, 42, 0.82) 0%,
+    rgba(22, 78, 99, 0.22) 100%
+  );
+  box-shadow:
+    0 4px 28px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+.hero-profile-badge {
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0f766e;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+}
+
+.dark .hero-profile-badge {
+  color: #5eead4;
+  border-color: rgba(45, 212, 191, 0.25);
+  background: rgba(15, 23, 42, 0.95);
+}
+
 /* Hero profile: floating bubble, no solid plate behind — page shows through */
 .profile-bubble-frame {
   isolation: isolate;

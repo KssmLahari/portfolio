@@ -17,32 +17,32 @@ export async function POST(request: NextRequest) {
     const responses = [
       {
         transcript: "Tell me about your projects",
-        response: "I've worked on several exciting projects! My most recent one is the Virtual Try-On Application for Blinds & Boundaries, which achieved a 70% increase in user interactivity. I also built SmartBuy AI eCommerce with RAG-powered AI agents, and a Railway Predictive Maintenance system using real-time ML. Would you like me to scroll to the projects section to show you more details?",
+        response: "I've worked on several projects including HealthScan, an AI healthcare assistant, and Blinds & Boundaries, a virtual try-on platform. Would you like me to open the projects page?",
         action: { type: 'navigate', target: 'projects' }
       },
       {
         transcript: "What are your skills",
-        response: "I specialize in Full-Stack AI Engineering with expertise in React, TypeScript, Python, FastAPI, Apache Spark, AWS, and Machine Learning. I have strong experience in building RAG systems, real-time ML pipelines, and cloud-native applications. Let me show you my skills section!",
+        response: "I specialize in healthcare master data management — Workday ERP, Infor Lawson Supply Chain Management, advanced SQL, Python, data cleansing, multi-source integration, and KPI tracking. I also use Splunk, CloudWatch, Jira, and ServiceNow for reporting and operations.",
         action: { type: 'navigate', target: 'skills' }
       },
       {
         transcript: "Show me your experience",
-        response: "I work at Cigna on FHIR-backed healthcare APIs and AWS serverless infrastructure, with earlier experience as a software engineering intern at Zoho on production SaaS backends. I'll open my experience page for you.",
+        response: "I spent over a year at The Cigna Group as Master Data Analyst maintaining supply chain MDM in Workday and Infor Lawson. Before that I worked at Anguliyam AI, did graduate research at Florida Tech, and interned at Zoho. I'll open my experience page for you.",
         action: { type: 'navigate', target: '/experience' }
       },
       {
-        transcript: "Download your resume",
-        response: "I'll open my resume for you to download. It contains my full professional background, skills, and project details.",
-        action: { type: 'download', target: 'resume' }
+        transcript: "Show me your experience",
+        response: "I'll take you to my experience page — healthcare master data at Cigna, plus Anguliyam, Florida Tech, and Zoho.",
+        action: { type: 'navigate', target: '/experience' }
       },
       {
         transcript: "Tell me about yourself",
-        response: "I'm a software engineer focused on backend and cloud systems in healthcare — FHIR APIs, AWS, and HIPAA-aware design — plus AI side projects with vision and multimodal pipelines. I work across Java, Python, Golang, and TypeScript.",
+        response: "I'm Lahari Karrotu, a Master Data Analyst based in Palo Alto with 4+ years in healthcare environments. I maintain supply chain master data — items, vendors, pricing, and inventory — with Workday ERP, Infor Lawson, data quality monitoring, and operational reporting.",
         action: null
       },
       {
         transcript: "What certifications do you have",
-        response: "I'm AWS Certified Solutions Architect — Associate, ServiceNow Certified System Administrator, and Cisco CCNA certified. I can jump to the certifications section on the site.",
+        response: "I'm AWS Certified Solutions Architect, ServiceNow Certified System Administrator, and Cisco CCNA certified in Switching, Routing & Wireless.",
         action: { type: 'navigate', target: 'certifications' }
       }
     ];
@@ -62,4 +62,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-} 
+}

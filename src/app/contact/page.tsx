@@ -14,7 +14,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="animate-fade-in mt-4 text-lg text-slate-600 dark:text-slate-300" style={{ animationDelay: '0.2s' }}>
-            I&apos;m interested in backend, cloud, and healthcare technology roles — plus teams shipping AI products with strong engineering discipline. Reach out through any of these channels.
+            I&apos;m based in Palo Alto and work in healthcare master data and supply chain analytics. Reach out through any of these channels.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function ContactPage() {
                 <MapPin className="mr-6 h-8 w-8 shrink-0 text-blue-600 dark:text-cyan-400 animate-bounce-subtle" style={{ animationDelay: '0.2s' }} />
                 <div>
                   <p className="mb-1 text-sm text-slate-500 dark:text-slate-400">Location</p>
-                  <p className="text-lg text-slate-900 dark:text-white">United States</p>
+                  <p className="text-lg text-slate-900 dark:text-white">Palo Alto, CA</p>
                 </div>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function ContactPage() {
 
           <div className="animate-fade-in mt-12 text-center" style={{ animationDelay: '0.8s' }}>
             <p className="text-slate-600 transition-transform duration-300 hover:scale-105 dark:text-slate-400">
-              Looking forward to connecting about backend, cloud, healthcare tech, and production AI work.
+              Looking forward to connecting about healthcare master data, supply chain analytics, and data governance.
             </p>
           </div>
         </div>

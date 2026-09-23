@@ -154,7 +154,7 @@ def get_recommendations(user_id: int, product_history: List[int]):
     year: 2025,
     category: 'AI/ML',
     tags: ['AI', 'Healthcare', 'Gemini Pro', 'OCR', 'Automation'],
-    technologies: ['Next.js 15', 'TypeScript', 'FastAPI', 'React Native', 'Gemini Pro 1.5', 'GPT-4o', 'Tesseract OCR', 'Playwright', 'PostgreSQL', 'Redis', 'Celery'],
+    technologies: ['FastAPI', 'Python', 'Next.js', 'Gemini Pro 1.5', 'GPT-4o', 'PostgreSQL', 'Playwright', 'JWT'],
     screenshots: [
       { type: 'product', url: '/projects/scanx/1.png', alt: 'ScanX upload and action flow', caption: 'Upload screenshot + define action' },
       { type: 'product', url: 'https://via.placeholder.com/400x300/111827/ffffff?text=ScanX+Overlay', alt: 'ScanX element detection overlay', caption: 'Element detection overlay (placeholder)' },
@@ -167,21 +167,24 @@ def get_recommendations(user_id: int, product_history: List[int]):
       { label: 'Observability', value: 'Prometheus + Sentry', icon: '📈' }
     ],
     keyFeatures: [
-      'Screenshot and doc ingestion',
-      'LLM-driven action suggestions',
-      'Task cards with human-in-the-loop confirmations'
+      'Prescription photo ingestion with GPT-4o and Gemini vision models',
+      'RxNorm API drug-interaction cross-referencing',
+      'Personalized diet and lifestyle recommendations',
+      'Three-layer pipeline: Vision Engine → Planner → Executor',
+      'PII scrubbing, audit logging, and JWT-authenticated endpoints'
     ],
     challenges: [
-      'Keeping prompts consistent across varied inputs'
+      'Normalizing outputs across two different LLM providers with schema inconsistencies',
+      'Building a clinical-adjacent pipeline with HIPAA-readiness standards'
     ],
     solutions: [
-      'Template-based prompting with guardrails and retries'
+      'Architected a three-layer processing pipeline that routes to appropriate downstream actions',
+      'Implemented PII scrubbing, audit logging, and JWT auth for secure API access'
     ],
     impact: [
-      'Achieved 85% accuracy on 100+ test interfaces using YOLO for UI element detection and GPT-4 Vision for semantic understanding',
-      'Implemented state management for action sequences with rollback mechanism for failed operations',
-      'Designed REST API with async task queue using Celery and Redis for long-running AI operations',
-      'Reduces manual triage of UI requests by automating first-pass suggestions'
+      'Single pipeline from prescription photo to medication extraction, interaction checks, and lifestyle guidance',
+      'Handles schema inconsistencies between GPT-4o and Gemini through normalized intermediate outputs',
+      'Designed for HIPAA-readiness with PII scrubbing and audit logging at every layer'
     ]
   },
   {
@@ -258,9 +261,9 @@ def analyze_job_description(job_text: str) -> Dict:
   },
   {
     id: 'blinds-boundaries',
-    title: 'Blinds & Boundaries — AI Virtual Try-On Platform',
-    description: 'Virtual try-on application for window blinds using computer vision and 3D rendering. Enables customers to visualize products in their actual space with realistic lighting and perspective. Deployed on Azure with real-time image processing.',
-    longDescription: 'Built production app with hybrid AI detection (Azure Computer Vision → Gemini → OpenCV fallback) for window detection + 3D blind overlay with realistic shadows/lighting. Implemented elite architecture using Repository/Factory/Strategy patterns with LRU cache (O(1) operations), vectorized NumPy algorithms, deployed on Azure App Service + Vercel with Azure Blob Storage CDN.',
+    title: 'Blinds & Boundaries Online — AI Virtual Try-On',
+    description: 'AI-powered virtual try-on for a window blinds retailer — upload a room photo and preview products in place, handling varying angles, uneven lighting, and non-rectangular window frames.',
+    longDescription: 'Built an AI-powered virtual try-on tool that lets customers upload a room photo and preview blinds in place. Uses a hybrid Azure Computer Vision → Gemini → OpenCV fallback pipeline for window detection. The rendering layer features perspective-corrected 3D overlays, shadow rendering, and depth estimation for realistic previews — deployed on Azure App Service with GitHub Actions CI/CD and a custom O(1) LRU cache achieving sub-10ms response times.',
     problem: 'Customers hesitate to purchase window treatments online due to uncertainty about how products will look in their space. High return rates and low conversion result from inability to visualize products before purchase.',
     githubUrl: githubRepo('blinds-boundaries'),
     liveUrl: 'https://blinds-boundaries-online.vercel.app',
@@ -268,46 +271,39 @@ def analyze_job_description(job_text: str) -> Dict:
     year: 2024,
     category: 'AI/ML',
     tags: ['React', 'TypeScript', 'FastAPI', 'Azure', 'AI', 'Computer Vision'],
-    technologies: ['React', 'TypeScript', 'FastAPI', 'Python', 'Azure Blob Storage', 'Azure Functions', 'OpenCV', 'TensorFlow', 'Three.js'],
+    technologies: ['FastAPI', 'React', 'TypeScript', 'Azure App Service', 'Azure Computer Vision', 'OpenCV', 'Vercel', 'GitHub Actions'],
     screenshots: [
       { type: 'website', url: '/projects/blinds/4.png', alt: 'Blinds & Boundaries Homepage', caption: 'Professional landing page' },
       { type: 'product', url: '/projects/blinds/5.png', alt: 'Virtual Try-On Interface', caption: 'Interactive virtual try-on experience' },
       { type: 'product', url: '/projects/blinds/6.png', alt: '3D Rendering', caption: 'Photorealistic 3D blind visualization' }
     ],
     performanceMetrics: [
-      { label: 'Detection Accuracy', value: '88%', icon: '🎯' },
-      { label: 'Images Processed', value: '500+', icon: '📸' },
-      { label: 'Test Images', value: '150', icon: '✅' },
-      { label: 'Cache Speedup', value: '78%', icon: '⚡' }
+      { label: 'Cache Response', value: 'Sub-10ms', icon: '⚡' },
+      { label: 'Processing Speedup', value: '3–5x via NumPy', icon: '🚀' },
+      { label: 'Detection Pipeline', value: 'Azure → Gemini → OpenCV', icon: '🎯' },
+      { label: 'Deployment', value: 'Azure + GitHub Actions', icon: '☁️' }
     ],
     keyFeatures: [
-      'AI-powered window detection and room analysis',
-      'Realistic 3D blind visualization with lighting effects',
-      'Multiple blind style and color options',
-      'Mobile-responsive design for on-the-go visualization',
-      'Integration with Azure cloud services for scalability',
-      'Real-time image processing and rendering'
+      'Room photo upload with in-place product preview',
+      'Hybrid Azure Computer Vision → Gemini → OpenCV fallback pipeline',
+      'Perspective-corrected 3D overlays with shadow rendering and depth estimation',
+      'Custom O(1) LRU cache for sub-10ms cached responses',
+      'GitHub Actions CI/CD on Azure App Service'
     ],
     challenges: [
-      'Achieving realistic visualizations with accurate lighting',
-      'Processing high-resolution images in real-time',
-      'Scaling to handle concurrent user requests'
+      'Handling real-world photography — varying angles, uneven lighting, non-rectangular window frames',
+      'Producing realistic previews rather than flat image compositing'
     ],
     solutions: [
-      'Implemented advanced computer vision algorithms for window detection',
-      'Used Azure Functions for serverless image processing',
-      'Optimized 3D rendering pipeline with WebGL',
-      'Implemented CDN caching for faster image delivery'
+      'Hybrid detection pipeline with Azure Computer Vision, Gemini, and OpenCV fallback',
+      'Perspective-corrected 3D rendering with shadow and depth estimation',
+      'Vectorized NumPy algorithms and O(1) LRU cache for 3–5x faster image processing'
     ],
     impact: [
-      'Processed 500+ images during beta testing with automated window measurements from photos',
-      'Achieved 88% detection accuracy across 150 test images using hybrid pipeline (Azure Vision API + OpenCV fallback)',
-      'Implemented LRU cache reducing repeat processing from 4.1s to 0.9s for cached requests (78% speedup)',
-      'Deployed to Azure and Vercel with Blob Storage CDN for scalable, low-latency performance',
-      'Enhanced customer purchasing confidence by allowing product visualization before purchase',
-      'Demonstrated expertise in computer vision, 3D rendering, and cloud deployment',
-      'Built responsive application working seamlessly on mobile and desktop devices',
-      'Showcased ability to integrate complex technologies (CV, 3D graphics, cloud) into user-friendly applications'
+      'Sub-10ms response times on cached requests via custom O(1) LRU cache',
+      '3–5x faster image processing through vectorized NumPy algorithms',
+      'Realistic product previews that handle real-world photography challenges',
+      'Deployed on Azure App Service with GitHub Actions CI/CD pipeline'
     ]
   },
   {

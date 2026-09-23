@@ -14,14 +14,14 @@ export default function ConnectPage() {
             Lahari Karrotu
           </h1>
           <p className="mb-2 text-[clamp(1.0625rem,3.5vw,1.25rem)] font-medium tracking-[-0.01em] text-slate-700 dark:text-slate-300">
-            Software Engineer
+            Master Data Analyst
           </p>
           <p className="mb-10 text-[clamp(0.875rem,2.5vw,0.9375rem)] leading-relaxed text-slate-500 dark:text-slate-400">
-            Backend & cloud systems • Healthcare tech • FHIR & AWS
+            Healthcare MDM · Workday & Infor Lawson · Palo Alto, CA
           </p>
 
           <p className="mx-auto mb-12 max-w-[480px] text-[clamp(0.9375rem,2.5vw,1.0625rem)] leading-[1.65] text-slate-800 dark:text-slate-300">
-            I build production-grade, HIPAA-aware backends — FHIR APIs, AWS serverless, and data protection — and ship AI tools that combine vision models with solid system design.
+            I maintain supply chain master data in healthcare — items, vendors, pricing, inventory — with a focus on data quality, governance, and operational reporting.
           </p>
 
           <div className="mx-auto mb-10 flex max-w-[400px] flex-col gap-4">
@@ -32,16 +32,6 @@ export default function ConnectPage() {
               className={`${actionBtn} bg-[#0077B5] hover:bg-[#006399]`}
             >
               Connect on LinkedIn
-            </a>
-
-            <a
-              href="/lahari-karrotu-resume.docx"
-              download="lahari-karrotu-resume.docx"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${actionBtn} bg-black dark:bg-slate-800 dark:hover:bg-slate-700`}
-            >
-              Download Resume
             </a>
 
             <a

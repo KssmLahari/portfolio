@@ -13,27 +13,27 @@ const VoiceAssistant = () => {
   const messages = [
     {
       title: "About Me",
-      text: "Hi! I'm Lahari Karrotu, a Software Engineer focused on backend and cloud systems in healthcare. At Cigna I work on FHIR APIs, AWS serverless infrastructure, and production reliability under HIPAA. I also build AI-powered side projects that combine vision models, APIs, and careful system design.",
+      text: "Hi! I'm Lahari Karrotu, a Master Data Analyst based in Palo Alto. I specialize in healthcare supply chain master data — items, vendors, pricing, and inventory — with experience in Workday ERP, Infor Lawson, data cleansing, and operational reporting.",
       action: () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
     },
     {
       title: "My Experience",
-      text: "I'm a Software Engineer at Cigna, owning backend microservices and AWS infrastructure for member-facing healthcare APIs. Before that I was a Software Engineering Intern at Zoho, working on production J2EE SaaS, data access layers, authentication, and MySQL performance. I like teams that care about correctness, observability, and regulated data.",
+      text: "I spent over a year at The Cigna Group as Master Data Analyst, maintaining supply chain MDM in Workday and Infor Lawson and serving as the primary POC for master data across IT and business teams. I also have data analyst experience at Anguliyam AI, graduate research at Florida Tech, and an engineering foundation from Zoho.",
       action: () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
     },
     {
       title: "Technical Expertise",
-      text: "Technically I work across Java, Python, Golang, and TypeScript — Spring Boot, FastAPI, FHIR and HL7, AWS Lambda and DynamoDB, Terraform and CloudFormation, plus observability with Splunk and CloudWatch. I hold AWS Solutions Architect, ServiceNow Certified System Administrator, and Cisco CCNA certifications.",
+      text: "I work with Workday ERP, Infor Lawson Supply Chain Management, advanced SQL, Python, data cleansing, multi-source data integration, and KPI tracking. For reporting I use Splunk, CloudWatch, and operational dashboards. I hold AWS Solutions Architect, ServiceNow Certified System Administrator, and Cisco CCNA certifications.",
       action: () => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })
     },
     {
       title: "Why Work With Me",
-      text: "I'm passionate about building reliable systems at scale. I prioritize correctness, maintainability, and engineering judgment alongside model performance. My experience spans the full stack—from backend APIs and data pipelines to AI workflows and production deployments. I'm interested in teams that value both technical depth and practical impact.",
+      text: "I care about data teams can trust — accurate master records, clear governance, and reporting that supports real decisions. I've served as the primary point of contact for master data questions across IT, operations, and business stakeholders in healthcare environments.",
       action: null
     },
     {
       title: "Let's Connect",
-      text: "I'm always happy to discuss backend, cloud, healthcare technology, and production AI. Reach me through the contact form or email at laharikarrotu@gmail.com.",
+      text: "I'm happy to discuss healthcare master data, supply chain analytics, and data governance. Reach me at laharikarrotu@gmail.com or through the contact page.",
       action: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
     }
   ];
