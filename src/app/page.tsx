@@ -16,11 +16,11 @@ import { GITHUB_URL } from '@/lib/site';
 
 export default function Home() {
   const explore = [
-    { title: 'About', body: 'Background, skills, and how I think about engineering.', href: '/about' },
-    { title: 'Experience', body: 'The Cigna Group, Anguliyam AI, Florida Tech, Zoho — full timeline.', href: '/experience' },
-    { title: 'Projects', body: 'Shipped work, experiments, and architecture notes.', href: '/projects' },
-    { title: 'Writing', body: 'Articles on AI systems, infra, and trade-offs.', href: '/blog' },
-    { title: 'Services', body: 'Ways I can help beyond a typical résumé line.', href: '/services' },
+    { title: 'About', body: 'SQL, pipelines, analytics, and how I work with healthcare data.', href: '/about' },
+    { title: 'Experience', body: 'Cigna, Anguliyam, Florida Tech, and Zoho — full timeline.', href: '/experience' },
+    { title: 'Projects', body: 'Pipelines, RAG systems, and data-heavy products I have shipped.', href: '/projects' },
+    { title: 'Writing', body: 'Notes on data systems, quality, and trade-offs.', href: '/blog' },
+    { title: 'Services', body: 'Pipelines, analytics, reporting, and data quality.', href: '/services' },
     { title: 'Contact', body: 'Email, phone, and profiles.', href: '/contact' },
   ];
 
@@ -54,11 +54,11 @@ export default function Home() {
                 duration={0.8}
                 className="mb-4 text-4xl font-light tracking-tight text-gray-900 dark:text-white md:text-6xl"
               >
-                Software engineer
+                Data Analyst &amp; Data Engineer
               </RevealHeading>
               <RevealText delay={0.2} duration={0.6}>
                 <p className="mb-8 max-w-2xl text-lg font-normal leading-relaxed text-slate-700 dark:text-slate-300 md:text-left">
-                  Backend &amp; cloud systems · Healthcare technology
+                  SQL, pipelines, and healthcare data on AWS
                 </p>
               </RevealText>
 
@@ -66,16 +66,16 @@ export default function Home() {
                 <div className="mb-10 min-h-[3.5rem] max-w-3xl text-xl font-normal leading-relaxed text-slate-700 dark:text-slate-300 md:min-h-[4rem] md:text-2xl">
                   <TypeWriter
                     texts={[
-                      'The messy middle: serialization, concurrency, infra that fails at 2 a.m.',
-                      'FHIR, AWS serverless, and data that has to stay inside policy.',
-                      'RAG, agents, and pipelines where the API matters as much as the model.',
+                      'Clean data, reliable pipelines, and reports teams actually use.',
+                      'SQL, Python, AWS, and quality checks on healthcare datasets.',
+                      'From ingestion and transformation to KPIs and stakeholder dashboards.',
                     ]}
                   />
                 </div>
               </RevealText>
 
               <RevealParagraph
-                text="Production healthcare backends at The Cigna Group; RAG and FastAPI work at Anguliyam AI; side projects that stay honest about errors and contracts. No infinite scroll — pick a page below."
+                text="At The Cigna Group I work with claims, eligibility, and provider data — transforming it, protecting it, and making it usable. Before that I built RAG ingestion pipelines at Anguliyam AI and research data workflows at Florida Tech. Pick a page below."
                 className="mb-8 max-w-3xl text-lg leading-relaxed text-slate-800 dark:text-slate-300 md:text-xl"
                 delay={0.45}
                 duration={0.9}
@@ -85,27 +85,17 @@ export default function Home() {
               <RevealText delay={0.55} duration={0.7}>
                 <div className="modern-quote mb-10 max-w-3xl px-5 py-4 text-left">
                   <p className="text-base leading-relaxed text-slate-800 dark:text-slate-200 md:text-lg">
-                    I optimize for clarity under constraint: regulated data, load, and teams across time zones —
-                    not polish for its own sake.
+                    I care about data that is accurate, documented, and safe to use — not dashboards that hide
+                    messy sources.
                   </p>
                 </div>
               </RevealText>
 
               <RevealText delay={0.65} duration={0.8}>
                 <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-                  <a
-                    href="/lahari-karrotu-resume.docx"
-                    download="lahari-karrotu-resume.docx"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-600 via-teal-600 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl active:translate-y-0 active:scale-[0.98]"
-                  >
-                    <span aria-hidden>📄</span>
-                    Download resume
-                  </a>
                   <Link
                     href="/projects"
-                    className="rounded-xl bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-2xl active:translate-y-0 active:scale-[0.98] dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                    className="rounded-xl bg-gradient-to-r from-cyan-600 via-teal-600 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl active:translate-y-0 active:scale-[0.98]"
                   >
                     Browse projects
                   </Link>
@@ -164,7 +154,7 @@ export default function Home() {
               Explore by page
             </h2>
             <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-relaxed text-slate-700 dark:text-slate-400">
-              Everything lives on its own route — no mile-long scroll.
+              Each section has its own route — start with experience or about.
             </p>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
               {explore.map((item, idx) => (
@@ -206,7 +196,7 @@ export default function Home() {
             <div className="text-center md:text-left">
               <p className="font-medium text-slate-900 dark:text-white">Lahari Karrotu</p>
               <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-                © {new Date().getFullYear()} · Backend, healthcare tech, and AI systems
+                © {new Date().getFullYear()} · Data analysis, pipelines, and healthcare data
               </p>
             </div>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">

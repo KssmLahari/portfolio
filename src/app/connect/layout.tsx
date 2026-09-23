@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Lahari Karrotu - Connect',
-  description: 'AI / Full-Stack Engineer',
+  description: 'Data Analyst & Data Engineer',
 };
 
 export default function ConnectLayout({

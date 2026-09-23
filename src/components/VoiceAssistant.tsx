@@ -13,17 +13,17 @@ const VoiceAssistant = () => {
   const messages = [
     {
       title: "About Me",
-      text: "Hi! I'm Lahari Karrotu, a Software Engineer focused on backend and cloud systems in healthcare. At Cigna I work on FHIR APIs, AWS serverless infrastructure, and production reliability under HIPAA. I also build AI-powered side projects that combine vision models, APIs, and careful system design.",
+      text: "Hi! I'm Lahari Karrotu, a data analyst and data engineer. At Cigna I work with healthcare claims, eligibility, and provider data — pipelines on AWS, quality checks, and reporting. I also built RAG ingestion pipelines at Anguliyam AI.",
       action: () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
     },
     {
       title: "My Experience",
-      text: "I'm a Software Engineer at Cigna, owning backend microservices and AWS infrastructure for member-facing healthcare APIs. Before that I was a Software Engineering Intern at Zoho, working on production J2EE SaaS, data access layers, authentication, and MySQL performance. I like teams that care about correctness, observability, and regulated data.",
+      text: "I'm a data engineer and analyst at Cigna. Before that I was a data engineer co-op at Anguliyam AI, a graduate research assistant at Florida Tech working on data pipelines, and an intern at Zoho focused on SQL and data access layers.",
       action: () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
     },
     {
       title: "Technical Expertise",
-      text: "Technically I work across Java, Python, Golang, and TypeScript — Spring Boot, FastAPI, FHIR and HL7, AWS Lambda and DynamoDB, Terraform and CloudFormation, plus observability with Splunk and CloudWatch. I hold AWS Solutions Architect, ServiceNow Certified System Administrator, and Cisco CCNA certifications.",
+      text: "Technically I work in SQL, Python, Java, and AWS — Lambda, DynamoDB, S3, RDS, SQS — plus Splunk and CloudWatch for quality and operations. My master's is in computer science with a data engineering focus. I hold AWS Solutions Architect, ServiceNow CSA, and Cisco CCNA certifications.",
       action: () => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })
     },
     {
@@ -33,7 +33,7 @@ const VoiceAssistant = () => {
     },
     {
       title: "Let's Connect",
-      text: "I'm always happy to discuss backend, cloud, healthcare technology, and production AI. Reach me through the contact form or email at laharikarrotu@gmail.com.",
+      text: "I'm always happy to discuss data analyst and data engineer roles — pipelines, SQL, healthcare data, and reporting. Reach me through the contact form or email at laharikarrotu@gmail.com.",
       action: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
     }
   ];

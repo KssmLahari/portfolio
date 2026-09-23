@@ -2,9 +2,9 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Lahari Karrotu — Software Engineer · Backend & Healthcare Tech',
+  title: 'Lahari Karrotu — Data Analyst & Data Engineer',
   description:
-    'Lahari Karrotu — software engineer working on backend, FHIR, and AWS in healthcare, with side projects in multimodal AI. Writing, code, and systems that care about the messy middle.',
+    'Lahari Karrotu — data analyst and data engineer working on healthcare data pipelines, SQL, AWS, quality monitoring, and operational reporting.',
 };
 
 export default function RootLayout({

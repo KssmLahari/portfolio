@@ -23,7 +23,7 @@ export default function ProjectsPage() {
           <SectionHeader
             eyebrow="Selected work"
             title="Projects"
-            subtitle="Detailed build work, shipped experiments, and production-minded implementations"
+            subtitle="Pipelines, RAG systems, and data-heavy products"
           />
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ProjectShowcase projects={projects} />

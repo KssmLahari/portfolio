@@ -6,33 +6,53 @@ import SiteChrome from '@/components/SiteChrome';
 
 export default function ExperiencePage() {
   const experiences = [
-  {
-    title: "Software Engineer",
-    company: "Cigna",
-    location: "United States",
-    period: "Aug 2024 – Present",
-    achievements: [
-      "Own backend microservices and AWS infrastructure for member-facing healthcare APIs at scale — FHIR R4 REST APIs translating legacy claims and eligibility into HL7 resources for the mobile app, including serialization, bundle pagination, and versioned profiles",
-      "Built a Golang-based PII/PHI masking layer in API Gateway that redacts sensitive fields (SSNs, diagnosis codes, insurance IDs) before responses reach clients, aligned with HIPAA minimum-necessary practice",
-      "Design and operate serverless claims processing on AWS — Lambda sizing, DynamoDB access patterns, SQS dead-letter queues, API Gateway throttling — with Terraform and CloudFormation and least-privilege IAM across environments",
-      "Implement and maintain Pega BPM decision tables for adjudication and claim routing so business teams can update rules independently",
-      "Lead production incident triage with Splunk across Lambda, RDS, and API Gateway; diagnosed connection pool exhaustion and DynamoDB hot partitions, cutting member login 5xx rate from 3.2% to under 0.5% over two sprint cycles",
-      "Collaborate across product, compliance, and engineering in SAFe Agile delivery, including architecture reviews with a distributed team across time zones"
-    ]
-  },
-  {
-    title: "Software Engineering Intern",
-    company: "Zoho",
-    location: "India",
-    period: "Aug 2021 – May 2022",
-    achievements: [
-      "Shipped backend features for a live J2EE SaaS product using layered MVC, from database through API, within Agile sprints",
-      "Designed a YAML-to-table JDBC data access layer replacing per-entity DAO boilerplate across 14 entities, standardizing CRUD and shortening feature delivery",
-      "Built authentication and session management: BCrypt (work factor 12), OTP-based 2FA via JavaMail with configurable SMTP TLS, and idle timeout expiry for a multi-tenant production product",
-      "Improved MySQL performance by removing N+1 patterns in high-traffic modules in favor of indexed JOINs — page loads dropped from about 4.8s to under 200ms on realistic data"
-    ]
-  }
-];
+    {
+      title: 'Data Engineer / Data Analyst',
+      company: 'The Cigna Group',
+      location: 'United States',
+      period: 'Aug 2024 – Present',
+      achievements: [
+        'Transform legacy claims and eligibility data into FHIR R4 / HL7 resources for member-facing applications — serialization, bundle pagination, and versioned profiles across large healthcare datasets',
+        'Design and operate AWS data infrastructure for claims processing — Lambda, DynamoDB access patterns, SQS dead-letter queues, RDS, and S3 — using Terraform and CloudFormation across environments',
+        'Build PHI/PII protection on data flowing through API Gateway so sensitive fields (SSNs, diagnosis codes, insurance IDs) are redacted before they leave the pipeline, aligned with HIPAA minimum-necessary practice',
+        'Monitor data quality and production health in Splunk — diagnosed connection-pool exhaustion and DynamoDB hot partitions, cutting member login 5xx from 3.2% to under 0.5%',
+        'Maintain operational reports and business rules (Pega decision tables) for claim routing so analysts and operations teams can update logic independently',
+        'Partner with product, compliance, and engineering on data change reviews in a distributed SAFe Agile team',
+      ],
+    },
+    {
+      title: 'Data Engineer Co-op',
+      company: 'Anguliyam AI',
+      location: 'Atlanta, GA · Remote',
+      period: 'Oct 2023 – May 2024',
+      achievements: [
+        'Built Python document ingestion pipelines for enterprise RAG — chunking, metadata extraction, and embedding generation over large unstructured corpora',
+        'Developed FastAPI services for multi-agent workflows: tool contracts, routing, and structured JSON between model calls and downstream actions',
+        'Integrated vector search so users could retrieve relevant context; contributed to prompt evaluation that improved retrieval quality',
+        'Documented pipeline configurations so client onboarding and deployments were reproducible',
+      ],
+    },
+    {
+      title: 'Graduate Research Assistant',
+      company: 'Florida Institute of Technology',
+      location: 'Melbourne, FL',
+      period: 'Dec 2022 – Aug 2023',
+      achievements: [
+        'Built and maintained Python data processing pipelines for faculty research — cleaning, transforming, and analyzing datasets from multiple sources',
+        'Supported experimental design and cloud-based prototypes; delivered summaries faculty could use in ongoing work',
+      ],
+    },
+    {
+      title: 'Software Engineering Intern',
+      company: 'Zoho Corporation',
+      location: 'India',
+      period: 'Aug 2021 – May 2022',
+      achievements: [
+        'Designed a reusable JDBC data access layer across 14 database entities, standardizing CRUD and cutting per-feature development time',
+        'Optimized MySQL query performance from ~4.8s to under 200ms using indexed JOINs; partnered with product teams on data integrity issues',
+      ],
+    },
+  ];
 
      return (
      <SiteChrome>
@@ -52,7 +72,7 @@ export default function ExperiencePage() {
             Professional Experience
           </h1>
                      <p className="animate-fade-in mt-4 text-lg text-slate-600 dark:text-slate-300" style={{ animationDelay: '0.2s' }}>
-             Healthcare payer platforms and production SaaS — measurable reliability and performance wins
+             Healthcare data pipelines, SQL, quality monitoring, and operational reporting
            </p>
         </div>
         
@@ -107,7 +127,7 @@ export default function ExperiencePage() {
                Want to work together?
              </h2>
              <p className="mb-4 text-slate-600 dark:text-slate-300">
-               I&apos;m always open to interesting roles in Software Engineering, Backend, or AI/ML. Let&apos;s talk.
+               Open to data analyst and data engineer roles — pipelines, SQL, reporting, and healthcare data. Let&apos;s talk.
              </p>
                          <Link
                href="/contact"

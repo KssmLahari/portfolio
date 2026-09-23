@@ -17,32 +17,27 @@ export async function POST(request: NextRequest) {
     const responses = [
       {
         transcript: "Tell me about your projects",
-        response: "I've worked on several exciting projects! My most recent one is the Virtual Try-On Application for Blinds & Boundaries, which achieved a 70% increase in user interactivity. I also built SmartBuy AI eCommerce with RAG-powered AI agents, and a Railway Predictive Maintenance system using real-time ML. Would you like me to scroll to the projects section to show you more details?",
+        response: "I've shipped data-heavy work including HealthScan, RAG pipelines, and ingestion systems. Would you like me to open the projects page?",
         action: { type: 'navigate', target: 'projects' }
       },
       {
         transcript: "What are your skills",
-        response: "I specialize in Full-Stack AI Engineering with expertise in React, TypeScript, Python, FastAPI, Apache Spark, AWS, and Machine Learning. I have strong experience in building RAG systems, real-time ML pipelines, and cloud-native applications. Let me show you my skills section!",
-        action: { type: 'navigate', target: 'skills' }
+        response: "I work across SQL, Python, AWS data services, ETL pipelines, data quality, Splunk reporting, and healthcare datasets including claims and FHIR. Let me show you more on the about page.",
+        action: { type: 'navigate', target: '/about' }
       },
       {
         transcript: "Show me your experience",
-        response: "I work at Cigna on FHIR-backed healthcare APIs and AWS serverless infrastructure, with earlier experience as a software engineering intern at Zoho on production SaaS backends. I'll open my experience page for you.",
+        response: "I'll open my experience page — Cigna data pipelines, Anguliyam RAG ingestion, Florida Tech research data, and Zoho SQL work.",
         action: { type: 'navigate', target: '/experience' }
       },
       {
-        transcript: "Download your resume",
-        response: "I'll open my resume for you to download. It contains my full professional background, skills, and project details.",
-        action: { type: 'download', target: 'resume' }
-      },
-      {
         transcript: "Tell me about yourself",
-        response: "I'm a software engineer focused on backend and cloud systems in healthcare — FHIR APIs, AWS, and HIPAA-aware design — plus AI side projects with vision and multimodal pipelines. I work across Java, Python, Golang, and TypeScript.",
+        response: "I'm Lahari Karrotu, a data analyst and data engineer. I work with healthcare data — pipelines, quality, and reporting — using SQL, Python, and AWS.",
         action: null
       },
       {
         transcript: "What certifications do you have",
-        response: "I'm AWS Certified Solutions Architect — Associate, ServiceNow Certified System Administrator, and Cisco CCNA certified. I can jump to the certifications section on the site.",
+        response: "I'm AWS Certified Solutions Architect, ServiceNow Certified System Administrator, and Cisco CCNA certified.",
         action: { type: 'navigate', target: 'certifications' }
       }
     ];

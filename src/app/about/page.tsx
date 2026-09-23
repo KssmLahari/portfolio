@@ -14,15 +14,14 @@ export default function AboutPage() {
                 About Me
               </h1>
               <p className="animate-fade-in text-lg leading-relaxed text-slate-700 dark:text-slate-300" style={{ animationDelay: '0.2s' }}>
-                Hey, I&apos;m Lahari. I work at Cigna on the backend for member-facing healthcare APIs — FHIR-shaped
-                services, AWS serverless pieces, and the habits (incidents, reviews, policy) that keep regulated data
-                inside the lines. I am most engaged where the spec is fuzzy and the data is not: serialization quirks,
-                concurrency, infrastructure that only misbehaves under load.
+                Hey, I&apos;m Lahari — a data analyst and data engineer working with healthcare datasets. At Cigna I
+                transform claims, eligibility, and provider data, keep quality checks in place, and surface what
+                operations teams need from AWS-backed pipelines.
               </p>
               <p className="animate-fade-in text-lg leading-relaxed text-slate-700 dark:text-slate-300" style={{ animationDelay: '0.3s' }}>
-                On my own time I still build: vision and multimodal pipelines (HealthScan, Blinds &amp; Boundaries) where
-                the model is only as good as the API and error handling around it. That is the same standard I want at
-                work — integration, not hype.
+                I mix analyst work (SQL, cleansing, KPI reporting, stakeholder summaries) with engineering work
+                (ingestion, transformations, warehouses/stores, and monitoring). I also built document RAG pipelines
+                at Anguliyam AI and research data workflows at Florida Tech.
               </p>
 
               <div className="transform space-y-4 transition-all duration-500 hover:translate-x-2">
@@ -53,12 +52,12 @@ export default function AboutPage() {
                 </h2>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { title: 'Backend & APIs', skills: 'Java, Spring Boot, FastAPI, Golang, HAPI FHIR, REST' },
-                    { title: 'Healthcare & compliance', skills: 'FHIR / HL7, OAuth 2.0, OIDC, HIPAA-aware design' },
-                    { title: 'Languages', skills: 'Java, Python, Golang, TypeScript, SQL, JavaScript' },
+                    { title: 'Data analysis', skills: 'SQL, Python, data cleansing, KPI tracking, executive summaries' },
+                    { title: 'Data engineering', skills: 'ETL/ELT, ingestion pipelines, AWS Lambda, SQS, DynamoDB, RDS, S3' },
+                    { title: 'Healthcare data', skills: 'Claims, eligibility, FHIR / HL7, PHI handling, HIPAA-aware design' },
                     {
-                      title: 'Cloud & infra',
-                      skills: 'AWS (Lambda, DynamoDB, S3, RDS, SQS), Terraform, CloudFormation, Docker, Azure',
+                      title: 'Reporting & ops',
+                      skills: 'Splunk, CloudWatch, operational dashboards, data quality monitoring, Terraform',
                     },
                   ].map((competency, index) => (
                     <div
@@ -105,10 +104,10 @@ export default function AboutPage() {
                 </h2>
                 <ul className="stagger-animation space-y-3">
                   {[
-                    'Cigna: FHIR R4 APIs at member scale, Golang PHI masking in API Gateway, AWS serverless (Terraform/CloudFormation), Splunk-led incident triage — login 5xx from 3.2% to under 0.5%',
-                    'Zoho: JDBC DAL across 14 entities, auth + 2FA, MySQL optimization (~4.8s → <200ms page loads)',
-                    'Projects: HealthScan (multimodal healthcare assistant), Blinds & Boundaries (Azure CV + try-on), SmartBuy v2, AI Resume Tailor',
-                    'M.S. CS (Florida Tech) · AWS Solutions Architect · ServiceNow CSA · Cisco CCNA',
+                    'Cigna: claims and eligibility transformations, AWS data infrastructure (Lambda, DynamoDB, SQS, RDS), PHI protection, Splunk quality and incident analytics',
+                    'Anguliyam AI: document ingestion, chunking, embeddings, and retrieval pipelines for enterprise RAG',
+                    'Florida Tech: research data processing pipelines; Zoho: SQL performance and a reusable data access layer',
+                    'M.S. CS — Systems, Data Engineering & Applied AI · AWS Solutions Architect · ServiceNow CSA · Cisco CCNA',
                   ].map((highlight, index) => (
                     <li key={index} className="flex transform items-start transition-all duration-300 hover:translate-x-2">
                       <span className="mr-3 mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 dark:from-cyan-500 dark:to-violet-500" />

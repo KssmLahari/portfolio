@@ -14,7 +14,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="animate-fade-in mt-4 text-lg text-slate-600 dark:text-slate-300" style={{ animationDelay: '0.2s' }}>
-            I&apos;m interested in backend, cloud, and healthcare technology roles — plus teams shipping AI products with strong engineering discipline. Reach out through any of these channels.
+            I&apos;m looking for data analyst and data engineer roles — SQL, pipelines, quality, and healthcare data. Reach out through any of these channels.
           </p>
         </div>
 
@@ -85,7 +85,7 @@ export default function ContactPage() {
 
           <div className="animate-fade-in mt-12 text-center" style={{ animationDelay: '0.8s' }}>
             <p className="text-slate-600 transition-transform duration-300 hover:scale-105 dark:text-slate-400">
-              Looking forward to connecting about backend, cloud, healthcare tech, and production AI work.
+              Looking forward to connecting about data analysis, pipelines, and healthcare datasets.
             </p>
           </div>
         </div>

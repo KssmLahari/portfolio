@@ -5,43 +5,43 @@ import SiteChrome from '@/components/SiteChrome';
 
 export default function ServicesPage() {
   const services = [{
-    title: "Data Engineering Solutions",
-    description: "Designing and implementing robust ETL pipelines, data warehouses, and data lakes using AWS services. Expertise in optimizing data processing workflows and ensuring data quality.",
+    title: "Data pipelines",
+    description: "Ingestion, transformation, and AWS workflows so claims, product, and operational data move reliably from source to store.",
     features: [
-      "ETL Pipeline Development",
-      "Data Warehouse Design",
-      "Data Quality Management",
-      "Performance Optimization"
+      "ETL / ELT pipeline design",
+      "AWS Lambda, SQS, S3, RDS, DynamoDB",
+      "Schema and contract handling",
+      "Dead-letter queues and retries"
     ]
   },
   {
-    title: "Cloud Architecture",
-    description: "Building scalable and cost-effective cloud solutions on AWS. Specializing in serverless architectures and microservices design for optimal performance and maintainability.",
+    title: "Data analysis & quality",
+    description: "SQL-first analysis, cleansing, and quality checks so reports rest on data people can trust.",
     features: [
-      "AWS Infrastructure Design",
-      "Serverless Applications",
-      "Microservices Architecture",
-      "Cloud Cost Optimization"
+      "Advanced SQL & Python",
+      "Data cleansing and validation",
+      "Multi-source integration",
+      "Quality monitoring"
     ]
   },
   {
-    title: "Data Analytics & Visualization",
-    description: "Creating insightful dashboards and reports using Power BI and Tableau. Transforming complex data into actionable business intelligence.",
+    title: "Reporting & KPIs",
+    description: "Operational dashboards and executive summaries that track pipeline health, data quality, and business metrics.",
     features: [
-      "Custom Dashboard Development",
-      "Real-time Analytics",
-      "Business Intelligence Reports",
-      "Data Storytelling"
+      "KPI dashboards",
+      "Splunk & CloudWatch",
+      "Stakeholder reporting",
+      "Incident analytics"
     ]
   },
   {
-    title: "Machine Learning Integration",
-    description: "Implementing and optimizing machine learning pipelines on AWS EC2. Integrating ML models with existing data workflows for predictive analytics.",
+    title: "Healthcare data",
+    description: "Working with regulated member, claims, and eligibility data — including FHIR-shaped interchange and PHI-aware handling.",
     features: [
-      "ML Pipeline Development",
-      "Model Deployment",
-      "Performance Tuning",
-      "Predictive Analytics"
+      "Claims & eligibility datasets",
+      "FHIR / HL7 transformations",
+      "PHI protection",
+      "HIPAA-aware pipelines"
     ]
   }
 ];
@@ -56,7 +56,7 @@ export default function ServicesPage() {
             Services
           </h1>
           <p className="animate-fade-in mt-4 text-lg text-slate-600 dark:text-slate-300" style={{ animationDelay: '0.2s' }}>
-            Comprehensive data engineering and cloud solutions tailored to your needs
+            Comprehensive data analysis, pipelines, and reporting for healthcare and enterprise teams
           </p>
         </div>
 
@@ -99,7 +99,7 @@ export default function ServicesPage() {
               Ready to Start Your Project?
             </h2>
             <p className="mb-8 text-slate-600 dark:text-slate-300">
-              Let&apos;s discuss how I can help you achieve your data engineering goals
+              Let&apos;s discuss pipelines, SQL, and reporting work that needs to ship cleanly.
             </p>
             <Link
               href="/contact"
